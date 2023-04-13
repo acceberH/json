@@ -1,38 +1,33 @@
-{
-  "title": "My Awesome Playlist",
-  "description": "A collection of my favorite songs",
-  "items": [
-    {
-      "title": "Bohemian Rhapsody",
-      "artist": "Queen",
-      "album": "A Night at the Opera",
-      "length": "5:54",
-      "image": "https://example.com/bohemian_rhapsody.jpg",
-      "color": "#a30000"
-    },
-    {
-      "title": "Stairway to Heaven",
-      "artist": "Led Zeppelin",
-      "album": "Led Zeppelin IV",
-      "length": "8:02",
-      "image": "https://example.com/stairway_to_heaven.jpg",
-      "color": "#0065a3"
-    },
-    {
-      "title": "Hotel California",
-      "artist": "Eagles",
-      "album": "Hotel California",
-      "length": "6:31",
-      "image": "https://example.com/hotel_california.jpg",
-      "color": "#a39000"
-    },
-    {
-      "title": "Sweet Child o' Mine",
-      "artist": "Guns N' Roses",
-      "album": "Appetite for Destruction",
-      "length": "5:56",
-      "image": "https://example.com/sweet_child_o_mine.jpg",
-      "color": "#a3008e"
-    }
-  ]
+function displayMusic() {
+  const musicContainer = document.getElementById('music-container');
+  musicContainer.innerHTML = '';
+
+  for (const song of musicCollection) {
+    const songCard = document.createElement('div');
+    songCard.className = 'song-card';
+
+    const songCover = document.createElement('img');
+    songCover.src = song.coverUrl;
+    songCover.className = 'song-cover';
+    songCard.appendChild(songCover);
+
+    const songTitle = document.createElement('h3');
+    songTitle.textContent = song.title;
+    songTitle.className = 'song-title';
+    songCard.appendChild(songTitle);
+
+    const songArtist = document.createElement('p');
+    songArtist.textContent = song.artist;
+    songArtist.className = 'song-artist';
+    songCard.appendChild(songArtist);
+
+    const songReleaseYear = document.createElement('p');
+    songReleaseYear.textContent = song.releaseYear;
+    songReleaseYear.className = 'song-release-year';
+    songCard.appendChild(songReleaseYear);
+
+    musicContainer.appendChild(songCard);
+  }
 }
+
+displayMusic();
