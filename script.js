@@ -30,4 +30,14 @@ function displayMusic() {
   }
 }
 
+
+
 displayMusic();
+$(document).ready(function () {
+  $('.song-card').tilt({
+    maxTilt: 10,
+    scale: 1.05,
+  });
+});
+
+
